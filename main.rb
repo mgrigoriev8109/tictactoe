@@ -1,13 +1,28 @@
-#Think about tic-tac-toe in the context of classes, instances, methods
+class GameBoard
+  #game_board class generates a new game_board instance with 9 O's
+  include BoardRound
+end
 
-#Breaking down tic-tac-toe into smaller problems:
+class Player
+  #first and second player generate new_round instances resetting their X selections
+  include PlayerRound
+end
 
-#classes: game_board, first_player, second_player
+module BoardRound
+  def print_board
 
-#game_board class generates a new game_board instance with 9 O's
-#first and second player generate new_round instances resetting their X selections
-#the method play_round is shared by first_player and second_player
-#it contains other methods which
-    #prints current board
-    #prompts the players for where they want to place their X
-    #checks the board for winner (if certain combination of numbers is X's)
+  end
+end 
+
+module PlayerRound
+  def prompt_player
+
+  end
+  def check_winner
+
+  end
+end
+
+new_board = GameBoard.new
+first_player = Player.new
+second_player = Player.new
