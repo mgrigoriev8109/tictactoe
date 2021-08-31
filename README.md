@@ -4,7 +4,7 @@ A terminal based game of Tic Tac Toe
 
 Demo
 
-![alt text](https://imgur.com/45xscu0)
+![alt text](https://i.imgur.com/45xscu0.png)
 
 Features
 
