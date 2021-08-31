@@ -23,6 +23,7 @@ class Player
   
   def initialize (player_selections_array)
     @player_selections_array = player_selections_array
+    @player_index_choice = player_index_choice
   end
 
   def prompt_player
@@ -39,9 +40,23 @@ end
 current_board = GameBoard.new(Array.new(9, 'o'))
 player_one = Player.new(Array.new)
 player_two = Player.new(Array.new)
-player_one.prompt_player
-current_board.update_board(player_one.instance_variable_get(:@player_index_choice))
-current_board.print_board
-player_two.prompt_player
-current_board.update_board(player_two.instance_variable_get(:@player_index_choice))
-current_board.print_board
+
+loop do
+
+  player_one.prompt_player
+  current_board.update_board(player_one.player_index_choice)
+  current_board.print_board
+  unless current_board.gameboard_array.include?("o")
+    print 'The game is over, the board is full and it is a tie!'
+    break
+  end
+
+  player_two.prompt_player
+  current_board.update_board(player_two.player_index_choice)
+  current_board.print_board
+  unless current_board.gameboard_array.include?("o")
+    print 'The game is over, the board is full and it is a tie!'
+    break
+  end
+
+end
