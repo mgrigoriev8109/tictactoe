@@ -1,21 +1,22 @@
 class GameBoard
-  #game_board class generates a new game_board instance with 9 O's
-  include UpdateBoard
-  def initialize(unavailable_cells_x, available_cells_o)
-    @available_cells_o = [0..8]
-    @unavailable_cells_x = []
+  attr_accessor :gameboard_array
+
+  #include UpdateBoard
+
+  def initialize(gameboard_array)
+    @gameboard_array = gameboard_array
   end
 
-  #include attr_accessor
-
   def print_board
-    #printing the board is functionality that only the GameBoard class requires
+    p gameboard_array[0..2]
+    p gameboard_array[3..5]
+    p gameboard_array[6..9]
   end
 end
 
 class Player
   #first and second player generate new_round instances resetting their X selections
-  include PlayerRound
+  #include PlayerRound
 
   def prompt_player
     #gets the input from the player
@@ -37,6 +38,7 @@ module UpdateBoard
   end
 end 
 
-current_board = GameBoard.new
-player_one = Player.new
-player_two = Player.new
+current_board = GameBoard.new(Array.new(9, 'o'))
+current_board.print_board
+#player_one = Player.new
+#player_two = Player.new
