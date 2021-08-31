@@ -42,3 +42,6 @@ player_two = Player.new(Array.new)
 player_one.prompt_player
 current_board.update_board(player_one.instance_variable_get(:@player_index_choice))
 current_board.print_board
+player_two.prompt_player
+current_board.update_board(player_two.instance_variable_get(:@player_index_choice))
+current_board.print_board
