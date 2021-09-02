@@ -57,12 +57,11 @@ class Player
   def sort_arrays(nested_array)
     if nested_array.all? { |e| e.kind_of? Array }
       nested_array.map! do |array|
-        p array
         array.sort
       end
     end
   end
-  
+
 end
 
 current_board = GameBoard.new(Array.new(9, '-'))
