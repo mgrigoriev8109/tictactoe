@@ -48,9 +48,18 @@ class Player
   end
 
   def check_winner
-    if (self.player_selections_array.combination(3).to_a & @@winning_combinations).any?
+    if (sort_arrays(self.player_selections_array.combination(3).to_a) & sort_arrays(@@winning_combinations)).any?
       self.game_status = 'over'
       print "#{self.player_name} is the winner!"
+    end
+  end
+  
+  def sort_arrays(nested_array)
+    if nested_array.all? { |e| e.kind_of? Array }
+      nested_array.map! do |array|
+        p array
+        array.sort
+      end
     end
   end
   
