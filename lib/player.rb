@@ -12,16 +12,23 @@ class Player
       @player_index_choice = player_index_choice
     end
   
+    def player_turn
+      prompt_player
+      modify_player_selections
+    end
+
     def prompt_player
-      print "#{@player_name}, from 0 to 8, which cell would you like to mark? "
-      self.player_index_choice = Integer(gets.chomp)
-      self.player_selections_array.push(self.player_index_choice)
-      @total_selections += 1
+      print "From 0 to 8, which cell would you like to mark? "
+      @player_index_choice = Integer(gets.chomp)
     end
   
+    def modify_player_selections
+      self.player_selections_array.push(@player_index_choice)
+      @total_selections += 1
+    end
+
     def check_winner
       if (sort_arrays(self.player_selections_array.combination(3).to_a) & sort_arrays(@@winning_combinations)).any?
-        print "#{self.player_name} is the winner!"
         true
       end
     end
