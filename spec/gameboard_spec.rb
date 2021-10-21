@@ -2,6 +2,7 @@ require_relative "../lib/player"
 require_relative "../lib/gameboard"
 
 describe GameBoard do
+  
   describe "#update_board" do
   let(:player) { double("player") }
   subject(:gameboard) {described_class.new(Array.new(9, '-'))}
@@ -14,7 +15,15 @@ describe GameBoard do
       end
     end
   end
-  #describe "#is_full?"
+  
+  describe "#is_full?" do
+  subject(:gameboard) {described_class.new(Array.new(9, '-'))}
 
-  #end
+    context "When the board is full" do
+      it "prints a message and returns true" do
+        gameboard.selected_cells = 9
+        expect(gameboard.is_full?).to be true
+      end
+    end
+  end
 end
